@@ -1,6 +1,6 @@
-package com.cloudhelios.cache.core;
+package com.benhouse.cache.core;
 
-import com.cloudhelios.cache.annotation.CacheNameSuffix;
+import com.benhouse.cache.annotation.CacheNameSuffix;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.interceptor.AbstractCacheResolver;

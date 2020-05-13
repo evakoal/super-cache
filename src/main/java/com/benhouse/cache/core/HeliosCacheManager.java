@@ -1,6 +1,6 @@
-package com.cloudhelios.cache.core;
+package com.benhouse.cache.core;
 
-import com.cloudhelios.cache.config.HeliosCacheProperties;
+import com.benhouse.cache.config.HeliosCacheProperties;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;

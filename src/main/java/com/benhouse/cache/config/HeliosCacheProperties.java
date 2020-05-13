@@ -1,4 +1,4 @@
-package com.cloudhelios.cache.config;
+package com.benhouse.cache.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

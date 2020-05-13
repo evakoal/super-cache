@@ -1,6 +1,6 @@
-package com.cloudhelios.cache.annotation;
+package com.benhouse.cache.annotation;
 
-import com.cloudhelios.cache.config.HeliosCacheConfiguration;
+import com.benhouse.cache.config.HeliosCacheConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

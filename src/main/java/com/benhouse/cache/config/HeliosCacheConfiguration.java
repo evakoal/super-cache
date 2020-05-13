@@ -1,7 +1,7 @@
-package com.cloudhelios.cache.config;
+package com.benhouse.cache.config;
 
-import com.cloudhelios.cache.core.HeliosCacheManager;
-import com.cloudhelios.cache.core.HeliosCacheResolver;
+import com.benhouse.cache.core.HeliosCacheManager;
+import com.benhouse.cache.core.HeliosCacheResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.CacheManager;
