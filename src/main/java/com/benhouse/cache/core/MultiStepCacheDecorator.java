@@ -125,6 +125,8 @@ public class MultiStepCacheDecorator implements Cache {
         String validMachines = "";
         if (remoteCache instanceof ValueWrapper) {
             validMachines = ((ValueWrapper) remoteCache).get() == null ? "" : ((ValueWrapper) remoteCache).get().toString();
+        }else{
+            validMachines=remoteCache.toString();
         }
 
         if (validMachines.contains(HeliosCacheManager.machineKey) && validMachines.contains(CACHE_INDICATOR_PREFIX)) {
@@ -175,27 +177,23 @@ public class MultiStepCacheDecorator implements Cache {
     }
 
     /**
-     * 获取远端 cache indicator的内容
-     *
-     * @return calculate indicator value when put indicator to remote cache
+     * ensure remote cache indicator after update local cache
      */
     private void updateCacheIndicator(Object key) {
         String validMachines = remoteCache.get(key, String.class);
-        if (validMachines != null && validMachines.contains(HeliosCacheManager.machineKey)) {
-            return;
+
+        if (validMachines == null || validMachines.contains(HeliosCacheManager.machineKey)) {
+            // it's a fully refresh
+            validMachines = CACHE_INDICATOR_PREFIX + HeliosCacheManager.machineKey+";";
+        }else{
+            // it's a catch up refresh
+            validMachines = validMachines == null ? HeliosCacheManager.machineKey + ";" : validMachines + HeliosCacheManager.machineKey + ";";
         }
-        validMachines = validMachines == null ? HeliosCacheManager.machineKey + ";" : validMachines + ";" + HeliosCacheManager.machineKey;
 
         if (!validMachines.startsWith(CACHE_INDICATOR_PREFIX)) {
+            //add indicator prefix to cache value
             validMachines = CACHE_INDICATOR_PREFIX + validMachines;
         }
         this.remoteCache.put(key, validMachines);
     }
-
-    public static void main(String [] args){
-        Date d=new Date();
-        ZonedDateTime dateTime=ZonedDateTime.now();
-        log.info(JSON.toJSONString(dateTime));
-    }
-
 }
