@@ -8,7 +8,7 @@
         <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.benhouse</groupId>
+    <groupId>com.github.evakoal</groupId>
     <artifactId>super-cache</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>super-cache</name>
